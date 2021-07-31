@@ -39,6 +39,8 @@ func main() {
 	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Green, false, false), cpuText)
 	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Cyan, false, false), memText)
 	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Yellow, false, false), diskText)
+
+    fmt.Print(termcontrol.SetGraphicRendition(termcontrol.Reset))
 }
 
 func getOS() (ostxt, uptimetxt, usertxt string) {
