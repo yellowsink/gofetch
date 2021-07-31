@@ -63,7 +63,7 @@ func getOS() (ostxt, uptimetxt, usertxt string) {
 
 func getCPU() string {
 	cpuInfo, _ := cpu.Info()
-	cpuLoads, _ := cpu.Percent(time.Second, false)
+	cpuLoads, _ := cpu.Percent(20 * time.Millisecond, false)
 	cpuLoad := strconv.FormatFloat(cpuLoads[0], 'f', 2, 64)
 	cpuPhysical, _ := cpu.Counts(false)
 	cpuLogical, _ := cpu.Counts(true)
