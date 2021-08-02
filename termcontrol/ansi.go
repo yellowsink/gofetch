@@ -83,17 +83,17 @@ func ScrollDown(amount int) string {
 	return fmt.Sprintf("%s%dT", csi, amount)
 }
 
-func SetGraphicRendition(rendition graphicRendition) string {
+func SetGraphicRendition(rendition GraphicRendition) string {
 	return fmt.Sprintf("%s%dm", csi, rendition)
 }
 
-func SetOneColor(color color, bg, bright bool) string {
+func SetOneColor(color Color, bg, bright bool) string {
 	if bg { color += 10 }
 	if bright { color += 60 }
 	return fmt.Sprintf("%s%dm", csi, color)
 }
 
-func SetBothColors(fgCol, bgCol color, fgBright, bgBright bool) string {
+func SetBothColors(fgCol, bgCol Color, fgBright, bgBright bool) string {
 	if fgBright { fgCol += 60 }
 	if bgBright { bgCol += 60 }
 	return fmt.Sprintf("%s%d;%dm", csi, fgCol, bgCol + 10)
@@ -123,5 +123,5 @@ func DeviceStatusReport() string {
 }
 
 func UseAlternateFont(fontNum int) string {
-	return SetGraphicRendition(graphicRendition(11 + fontNum))
+	return SetGraphicRendition(GraphicRendition(11 + fontNum))
 }

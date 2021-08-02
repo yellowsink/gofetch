@@ -1,9 +1,9 @@
 package termcontrol
 
-type color int
+type Color int
 
 const (
-	Black color = iota + 30
+	Black Color = iota + 30
 	Red
 	Green
 	Yellow

@@ -30,15 +30,20 @@ func main() {
 	// prepare to print system data
 	fmt.Print(termcontrol.CursorUp(asciiHeight))
 	infoCol := asciiWidth + 2
-	gotoInfoCol := func() string {return termcontrol.CursorHorizontalPos(infoCol)}
+	printInfo := func(info string, color termcontrol.Color) {
+		fmt.Printf("%s%s%s\n",
+			termcontrol.CursorHorizontalPos(infoCol),
+			termcontrol.SetOneColor(color, false, false),
+			info)
+	}
 
 	// shove it all in the console
-	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Red, false, false), osText)
-	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Magenta, false, false), uptimeText)
-	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Blue, false, false), hostText)
-	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Green, false, false), cpuText)
-	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Cyan, false, false), memText)
-	fmt.Printf("%s%s%s\n", gotoInfoCol(), termcontrol.SetOneColor(termcontrol.Yellow, false, false), diskText)
+	printInfo(osText,     termcontrol.Red)
+	printInfo(uptimeText, termcontrol.Magenta)
+	printInfo(hostText,   termcontrol.Blue)
+	printInfo(cpuText,    termcontrol.Green)
+	printInfo(memText,    termcontrol.Cyan)
+	printInfo(diskText,   termcontrol.Yellow)
 
     fmt.Print(termcontrol.SetGraphicRendition(termcontrol.Reset))
 }

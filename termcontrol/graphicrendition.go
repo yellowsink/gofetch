@@ -1,9 +1,9 @@
 package termcontrol
 
-type graphicRendition int
+type GraphicRendition int
 
 const (
-	Reset graphicRendition = iota
+	Reset GraphicRendition = iota
 	Bold
 	Faint
 	Italic
@@ -15,7 +15,7 @@ const (
 	Strikethru
 	PrimaryFont
 
-	BlackletterFont graphicRendition = iota + 9
+	BlackletterFont GraphicRendition = iota + 9
 	DoubleUnderline
 	NormalIntensity
 	NeitherItalicNorBlackletter
@@ -26,14 +26,14 @@ const (
 	NotConcealed
 	NotStrikedThru
 
-	DisableProportionalSpacing graphicRendition = iota + 29
+	DisableProportionalSpacing GraphicRendition = iota + 29
 	Framed
 	Encircled
 	Overlined
 	NeitherFramedNorEncircled
 	NotOverlined
 
-	Superscript graphicRendition = iota + 46
+	Superscript GraphicRendition = iota + 46
 	Subscript
 	NeitherSuperscriptNorSubscript
 )
